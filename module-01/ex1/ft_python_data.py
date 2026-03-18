@@ -14,6 +14,5 @@ if __name__ == "__main__":
     cactus = Plant("Cactus", 15, 120)
 
     print("=== Garden Plant Registry ===")
-    print(f"{rose.name}: {rose.height} cm, {rose.age} days old")
-    print(f"{sunflower.name}: {sunflower.height} cm, {sunflower.age} days old")
-    print(f"{cactus.name}: {cactus.height} cm, {cactus.age} days old")
+    for plant in plants:
+        print(f"{plant.name}: {plant.height}cm, {plant.age} days old")
