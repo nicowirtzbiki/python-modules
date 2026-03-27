@@ -1,41 +1,32 @@
 #!/usr/bin/env python3
 
+
 class Plant:
-    def __init__(self, name, height, age_days):
+    def __init__(self, name: str, height: float, age_days: int) -> None:
         self.name = name
-        self.height = height
+        self.height = float(height)
         self.age_days = age_days
 
-    def grow(self):
-        self.height += 1
+    def grow(self) -> None:
+        self.height = round(self.height + 1.0, 1)
 
-    def age(self):
+    def age(self) -> None:
         self.age_days += 1
 
-    def get_info(self):
-        return f"{self.name}: {self.height}cm, {self.age_days} days old"
+    def show(self) -> None:
+        print(f"{self.name}: {self.height}cm, {self.age_days} days old")
 
 
 if __name__ == "__main__":
-
-    plant_data = [
-        ("Rose", 25, 30),
-        ("Oak", 200, 365),
-        ("Cactus", 5, 90),
-        ("Sunflower", 80, 45),
-        ("Fern", 15, 120)
+    plants = [
+        Plant("Rose", 25.0, 30),
+        Plant("Oak", 200.0, 365),
+        Plant("Cactus", 5.0, 90),
+        Plant("Sunflower", 80.0, 45),
+        Plant("Fern", 15.0, 120),
     ]
 
-    plants = []
-
     print("=== Plant Factory Output ===")
-
-    for name, height, age in plant_data:
-        plant = Plant(name, height, age)
-        plants.append(plant)
-        print(
-            f"Created: {plant.name} "
-            f"({plant.height}cm, {plant.age_days} days)"
-        )
-
-    print(f"Total plants created: {len(plants)}")
+    for plant in plants:
+        print("Created: ", end="")
+        plant.show()

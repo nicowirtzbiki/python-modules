@@ -9,4 +9,5 @@ if __name__ == "__main__":
     print(f"Plant: {plant_name}")
     print(f"Height: {plant_height}cm")
     print(f"Age: {plant_age} days")
+    print()
     print("=== End of Program ===")
