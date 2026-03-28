@@ -24,7 +24,12 @@ class Plant:
                 f"{self._show_count} show"
             )
 
-    def __init__(self, name: str, height: float, age_days: int) -> None:
+    def __init__(
+            self,
+            name: str,
+            height: float,
+            age_days: int
+    ) -> None:
         self.name = name
         self._height = float(height)
         self._age_days = age_days
@@ -72,8 +77,13 @@ class Plant:
 
 
 class Flower(Plant):
-    def __init__(self, name: str, height: float, 
-                 age_days: int, color: str) -> None:
+    def __init__(
+            self,
+            name: str,
+            height: float,
+            age_days: int,
+            color: str
+    ) -> None:
         super().__init__(name, height, age_days)
         self.color = color
         self._blooming = False
@@ -104,10 +114,10 @@ class Tree(Plant):
             print(f"{self._shade_count} shade")
 
     def __init__(
-        self, 
-        name: str, 
-        height: float, 
-        age_days: int, 
+        self,
+        name: str,
+        height: float,
+        age_days: int,
         trunk_diameter: float
     ) -> None:
         super().__init__(name, height, age_days)
@@ -150,7 +160,11 @@ class Vegetable(Plant):
 
 class Seed(Flower):
     def __init__(
-        self, name: str, height: float, age_days: int, color: str
+        self,
+        name: str,
+        height: float,
+        age_days: int,
+        color: str
     ) -> None:
         super().__init__(name, height, age_days, color)
         self._seed_count: int = 0
@@ -175,7 +189,9 @@ if __name__ == "__main__":
     print("=== Garden statistics ===")
     print("=== Check year-old")
     print(f"Is 30 days more than a year? -> {Plant.is_older_than_a_year(30)}")
-    print(f"Is 400 days more than a year? -> {Plant.is_older_than_a_year(400)}")
+    print(
+        f"Is 400 days more than a year? -> {Plant.is_older_than_a_year(400)}"
+        )
 
     print("\n=== Flower")
     rose = Flower("Rose", 15.0, 10, "red")
