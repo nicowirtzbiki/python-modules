@@ -1,42 +1,55 @@
-#!usr/bin/env python3
+#!/usr/bin/env python3
 
-class SecurePlant():
-    def __init__(self, name: str) -> None:
+
+class Plant:
+    def __init__(self, name: str, height: float, age_days: int) -> None:
         self.name = name
-        self._height = 0
-        self._age = 0
+        self._height = float(height)
+        self._age_days = age_days
 
-    def get_height(self) -> int:
+    def get_height(self) -> float:
         return self._height
 
     def get_age(self) -> int:
-        return self._age
-    
-    def set_height(self, height: int) -> None:
+        return self._age_days
+
+    def set_height(self, height: float) -> None:
         if height < 0:
-            print(f"Invalid operation attempted: height {height}cm [REJECTED]")
-            print("Security: Negative height rejected")
+            print(f"{self.name}: Error, height can't be negative")
+            print("Height update rejected")
         else:
-            self._height = height
-            print(f"Height updated: {height}cm [OK]")
-    
+            self._height = float(height)
+            print(f"Height updated: {int(height)}cm")
+
     def set_age(self, age: int) -> None:
         if age < 0:
-            print(f"Invalid operation attempted: age {age} days [REJECTED]")
-            print("Security: Negative age rejected")
+            print(f"{self.name}: Error, age can't be negative")
+            print("Age update rejected")
         else:
-            self._age = age
-            print(f"Age updated: {age} days [OK]")
+            self._age_days = age
+            print(f"Age updated: {age} days")
+
+    def grow(self) -> None:
+        self._height = round(self._height + 1.0, 1)
+
+    def age(self) -> None:
+        self._age_days += 1
+
+    def show(self) -> None:
+        print(f"{self.name}: {self._height}cm, {self._age_days} days old")
+
 
 if __name__ == "__main__":
     print("=== Garden Security System ===")
-
-    plant = SecurePlant("Rose")
-    print(f"Plant created: {plant.name}")
-
-    plant.set_height(25)
-    plant.set_age(30)
+    rose = Plant("Rose", 15.0, 10)
+    print(f"Plant created: ", end="")
+    rose.show()
     print()
-    plant.set_height(-5)
+    rose.set_height(25)
+    rose.set_age(30)
     print()
-    print(f"Current plant: {plant.name} ({plant.get_height()}cm, {plant.get_age()} days)")
+    rose.set_height(-5)
+    rose.set_age(-3)
+    print()
+    print("Current state: ", end="")
+    rose.show()
