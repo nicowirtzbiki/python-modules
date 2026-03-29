@@ -122,7 +122,7 @@ class Tree(Plant):
     ) -> None:
         super().__init__(name, height, age_days)
         self.trunk_diameter = float(trunk_diameter)
-        self._stats = Tree.TreeStats()
+        self._stats: Tree.TreeStats = Tree.TreeStats()
 
     def produce_shade(self) -> None:
         self._stats.record_shade()
