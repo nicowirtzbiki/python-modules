@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 class GardenError(Exception):
     def __init__(self, message: str = "Unknown garden error") -> None:
         super().__init__(message)
@@ -21,7 +22,7 @@ def check_plant(plant_name: str) -> None:
 
 def check_water(water_amount: int = 0) -> None:
     if water_amount == 0:
-        raise WaterError(f"Not enough water in the tank!")
+        raise WaterError("Not enough water in the tank!")
 
 
 def test_custom_errors() -> None:
@@ -29,7 +30,7 @@ def test_custom_errors() -> None:
     print()
     print("Testing PlantError...")
     try:
-        check_plant("Bugonia")
+        check_plant("tomato")
     except PlantError as e:
         print(f"Caught PlantError: {e}")
     print()
@@ -50,5 +51,7 @@ def test_custom_errors() -> None:
         print(f"Caught GardenError: {e}")
     print()
     print("All custom error types work correctly!")
+
+
 if __name__ == "__main__":
     test_custom_errors()
