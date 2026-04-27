@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-from fileinput import filename
 import sys
 import typing
 
@@ -70,8 +69,8 @@ def main() -> None:
         print("Not saving data.")
     else:
         print(f"Saving data to '{filename}'")
-    if not write_file(filename, new_content):
-        print("Data not saved.")
+        if not write_file(filename, new_content):
+            print("Data not saved.")
 
 
 if __name__ == "__main__":
