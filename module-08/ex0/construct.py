@@ -6,8 +6,8 @@ import site
 
 
 def is_virtual_env() -> bool:
-    """Return True if running inside a virtual environment."""
-    #return(sys.prefix != sys.base_prefix)
+    """Return True if running inside a virtual environment.
+    # LINUX: return(sys.prefix != sys.base_prefix)"""
     return os.environ.get("VIRTUAL_ENV") is not None
 
 

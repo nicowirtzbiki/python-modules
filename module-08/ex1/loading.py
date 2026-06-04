@@ -77,7 +77,7 @@ def run_analysis() -> None:
     plt.savefig(output)
     plt.close()
 
-    print(f"\nAnalysis complete!")
+    print("\nAnalysis complete!")
     print(f"Results saved to: {output}")
 
 

@@ -32,7 +32,7 @@ class NormalStrategy(BattleStrategy):
     def act(self, creature: Creature) -> None:
         """Simply attack."""
         print(creature.attack())
-    
+
 
 class DefensiveStrategy(BattleStrategy):
     """Strategy suitable for creatures with heal capability."""

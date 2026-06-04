@@ -36,6 +36,7 @@ def open_file(filename: str) -> str:
         print(f"Error opening file '{filename}': {err}")
         return ""
 
+
 def write_file(filename: str, content: str) -> None:
     """Writes content to a file."""
     try:

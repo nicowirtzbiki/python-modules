@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from typing import Any
+
 from ex0.factories import CreatureFactory
 from ex0 import FlameFactory, AquaFactory
 from ex1 import HealingCreatureFactory, TransformCreatureFactory
