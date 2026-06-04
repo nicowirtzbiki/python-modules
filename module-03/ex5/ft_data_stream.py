@@ -23,7 +23,7 @@ def consume_event(
 
 
 def main() -> None:
-    print("=== Game Data Stream ===")
+    print("=== Game Data Stream Processor ===")
 
     gen = gen_events()
     for i in range(1000):

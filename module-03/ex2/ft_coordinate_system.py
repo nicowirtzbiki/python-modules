@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import math
 
 
@@ -7,7 +9,7 @@ def get_player_pos() -> tuple[float, float, float]:
                                 "as floats in format 'x,y,z': ")
         parts = new_coordinates.split(',')
         if len(parts) != 3:
-            print("Invalid syntax.")
+            print("Invalid syntax")
             continue
         valid = True
         for part in parts:

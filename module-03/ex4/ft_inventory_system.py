@@ -23,6 +23,9 @@ def main() -> None:
     print("=== Inventory System Analysis ===")
     inventory: dict[str, int] = {}
     parse_arguments(inventory)
+    if not inventory:
+        print("Inventory is empty!")
+        return
     print(f"Got inventory: {inventory}")
     print(f"Item list: {list(inventory.keys())}")
     total = sum(inventory.values())

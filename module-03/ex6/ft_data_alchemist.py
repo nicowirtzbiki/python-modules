@@ -33,9 +33,9 @@ def main() -> None:
     print(f"Score average is {average_score}")
 
     highest_scores = {
-        name: score
-        for name, score in name_scores_dict.items()
-        if score > average_score
+        name: name_scores_dict[name]
+        for name in name_scores_dict.keys()
+        if name_scores_dict[name] > average_score
     }
     print(f"High scores: {highest_scores}")
 
