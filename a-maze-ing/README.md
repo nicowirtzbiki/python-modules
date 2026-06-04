@@ -1,4 +1,4 @@
-_This project has been created as part of the 42 curriculum by nwirtzbi, g-lins._
+_This project has been created as part of the 42 curriculum by nwirtzbi, glins-ce._
 
 ## Description
 
@@ -87,7 +87,7 @@ Install the package: `pip install mazegen-1.0.0-py3-none-any.whl`
   class with the iterative DFS algorithm and BFS solver
   (`mazegen/maze_generator.py`).
 
-- **g-lins** — maze structure and visualisation: implemented the grid
+- **glins-ce** — maze structure and visualisation: implemented the grid
   representation, '42' pattern, hex output file writer, ASCII terminal
   display, and interactive menu (`a_maze_ing.py`).
 
