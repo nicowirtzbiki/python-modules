@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv # type: ignore
 
 
 def load_configuration() -> None:
@@ -70,6 +70,7 @@ def security_check() -> None:
 
 def main() -> None:
     """Main oracle function."""
+    print()
     print("ORACLE STATUS: Reading the Matrix...")
     print()
 

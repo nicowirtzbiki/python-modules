@@ -6,8 +6,7 @@ import site
 
 
 def is_virtual_env() -> bool:
-    """Return True if running inside a virtual environment.
-    # LINUX: return(sys.prefix != sys.base_prefix)"""
+    """Return True if running inside a virtual environment."""
     return os.environ.get("VIRTUAL_ENV") is not None
 
 
@@ -24,6 +23,7 @@ def get_package_path() -> str:
 
 def show_outside() -> None:
     """Display info when running outside a virtual environment."""
+    print()
     print("MATRIX STATUS: You're still plugged in")
     print()
     print(f"Current Python: {sys.executable}")
@@ -42,6 +42,7 @@ def show_outside() -> None:
 
 def show_inside() -> None:
     """Display info when running inside a virtual environment."""
+    print()
     print("MATRIX STATUS: Welcome to the construct")
     print()
     print(f"Current Python: {sys.executable}")
@@ -58,7 +59,7 @@ def show_inside() -> None:
 
 def main() -> None:
     """Detect environment and display appropriate information."""
-    if is_virtual_env:
+    if is_virtual_env():
         show_inside()
     else:
         show_outside()
