@@ -139,6 +139,21 @@ class MazeGenerator:
             self.grid[r][c] = 0xF
         return True
 
+    def _has_3x3_open_area(self) -> bool:
+        for r in range(self.height - 2):
+            for c in range(self.width - 2):
+                is_open = True
+                for i in range(3):
+                    for j in range(3):
+                        cell = self.grid[r + i][c + j]
+                        if i < 2 and (cell & SOUTH):
+                            is_open = False
+                        if j < 2 and (cell & EAST):
+                            is_open = False
+                if is_open:
+                    return True
+        return False
+
     # ------------------------------------------------------------------
     # Public API
     # ------------------------------------------------------------------

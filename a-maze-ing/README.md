@@ -83,16 +83,25 @@ Install the package: `pip install mazegen-1.0.0-py3-none-any.whl`
 
 ## Team & Project Management
 
-- **nwirtzbi** — maze generation logic: implemented the `MazeGenerator`
-  class with the iterative DFS algorithm and BFS solver
-  (`mazegen/maze_generator.py`).
-
-- **glins-ce** — maze structure and visualisation: implemented the grid
-  representation, '42' pattern, hex output file writer, ASCII terminal
-  display, and interactive menu (`a_maze_ing.py`).
+This project was built collaboratively. Both team members worked closely
+together throughout development, with frequent pair programming sessions
+and mutual code review — every part of the codebase (maze generation
+logic, BFS solver, terminal display, and configuration handling) was
+discussed, tested, and reviewed by both team members before being merged.
 
 - **Planning:** We initially planned to finish the generator in the first
-  week and the visualisation in the second. In practice, the '42' pattern
-  and the hex output format took longer than expected, so we adjusted and
-  worked on both parts in parallel towards the end.
-- Tools: VS Code, Git, Claude (AI assistant)
+week and the visualisation in the second. In practice, the '42' pattern
+and the hex output format took longer than expected, so we adjusted and
+worked on both parts in parallel towards the end, regularly syncing to
+keep both halves of the project consistent.
+
+**What worked well:** working closely together and reviewing each other's
+code helped us catch bugs early and made sure both of us understood the
+full codebase, not just the parts we wrote first.
+
+**What could be improved:** writing automated tests earlier in the
+process instead of testing manually throughout would have caught some
+edge cases sooner.
+
+**Tools:** VS Code, Git, Claude (AI assistant for code review,
+explanations, and README structure).

@@ -12,18 +12,20 @@ debug:
 clean:
 	find . -type d -name __pycache__ -exec rm -rf {} +
 	rm -rf .mypy_cache dist build *.egg-info
+
+fclean: clean
 	rm -f mazegen-*.whl
 
 lint:
-	flake8 .
-	mypy . --warn-return-any --warn-unused-ignores \
+	flake8  --exclude venv  .
+	mypy --exclude venv --warn-return-any --warn-unused-ignores \
 	       --ignore-missing-imports --disallow-untyped-defs \
-	       --check-untyped-defs
+	       --check-untyped-defs .
 
 lint-strict:
 	flake8 .
 	mypy . --strict
 
-build:
+build: install
 	python3 -m build
-	cp dist/mazegen-*.whl .
+	cp dist/mazegen-*.whl . 

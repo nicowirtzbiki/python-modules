@@ -72,6 +72,8 @@ def parse_config(path: str) -> dict[str, str]:
                     )
                     sys.exit(1)
                 k, v = line.split('=', 1)
+                if k in cfg:
+                    raise ValueError(f"{k} value is duplicated")
                 cfg[k.strip()] = v.strip()
     except FileNotFoundError:
         print(f"Error: config file not found: {path}")
@@ -121,7 +123,6 @@ def validate_config(cfg: dict[str, str]) -> dict[str, Any]:
     for key in required:
         if key not in cfg:
             raise ValueError(f"Missing required key: {key}")
-
     try:
         width = int(cfg['WIDTH'])
         height = int(cfg['HEIGHT'])
@@ -325,11 +326,15 @@ def _make_gen(params: dict[str, Any], seed: Optional[int]) -> MazeGenerator:
         seed=seed,
         perfect=params['perfect'],
     )
-    gen.generate(
-        entry=params['entry'],
-        exit_=params['exit'],
-    )
-    return gen
+    try:
+        gen.generate(
+                entry=params['entry'],
+                exit_=params['exit'],
+                )
+        return gen
+    except Exception as e:
+        print(e)
+        sys.exit(1)
 
 
 # -----------------------------------------------------------------------
@@ -375,6 +380,10 @@ def run(params: dict[str, Any]) -> None:
             _WALL_COLORS[wall_idx],
         )
         print("\n==== A-Maze-ing ====")
+        if not gen.get_42_cells():
+            print(
+                _col("Warning: maze too small for '42' pattern.", fg="yellow")
+            )
         print("1. Re-generate a new maze")
         print("2. Show/Hide solution path")
         print("3. Rotate wall colour")
@@ -415,14 +424,16 @@ def main() -> None:
         print("Usage: python3 a_maze_ing.py config.txt")
         sys.exit(1)
 
-    raw = parse_config(sys.argv[1])
     try:
+        raw = parse_config(sys.argv[1])
         params = validate_config(raw)
+        run(params)
     except ValueError as exc:
         print(f"Config error: {exc}")
         sys.exit(1)
-
-    run(params)
+    except (KeyboardInterrupt, EOFError) as e:
+        print(e)
+        sys.exit(0)
 
 
 if __name__ == "__main__":
